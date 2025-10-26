@@ -19,7 +19,7 @@ export default function Home() {
 
       <div className="fixed top-0 left-0 right-0 z-10 px-6 pt-20 md:pt-24">
         <div className="mx-auto max-w-4xl md:px-8">
-          <h1 className="inline-block text-6xl md:text-7xl leading-none font-bold tracking-tight px-6 py-3 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15">
+          <h1 className="inline-block text-5xl md:text-7xl leading-none font-bold tracking-tight px-4 md:px-6 py-3 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15">
             <span className="relative text-sky-600">Role Driven</span>
             <br />
             UI and Config
@@ -32,8 +32,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative z-20 pt-72">
-        <div className="relative mx-auto max-w-4xl border border-zinc-100 bg-white p-8">
+      <div className="relative z-20 pt-64 md:pt-72">
+        <div className="relative mx-auto max-w-4xl border border-zinc-100 bg-white py-6 px-4 md:p-8">
           <Section title="Introduction">
             <GuidelineItem description="Treat the server as source of truth for authorization and the client as a guide for visibility" />
             <GuidelineItem description="Prefer capability permissions over role names in every interface decision" />
