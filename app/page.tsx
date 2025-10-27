@@ -166,21 +166,58 @@ export default async function Home() {
             <GuidelineItem description="Avoid prefetching restricted data and hiding the container afterward" />
           </Section>
 
-          <div className="mt-16 pt-8 border-t border-border">
+          <div className="mt-16 py-8 border-t border-border">
             <p className="text-sm leading-7 text-muted-foreground">
               Last updated: {lastUpdated} •{" "}
               <a
                 href="https://github.com/SanyamPunia/eps-guide"
-                className="underline hover:text-foreground transition-colors"
+                className="underline hover:text-foreground transition-colors inline-flex items-center gap-0.5 group"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 View on GitHub
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="inline transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
               </a>
             </p>
           </div>
         </div>
       </div>
+
+      <div
+        aria-hidden="true"
+        className="verticalFade"
+        data-side="bottom"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          height: "100px",
+          width: "100%",
+          left: 0,
+          zIndex: 100,
+          pointerEvents: "none",
+          userSelect: "none",
+          backdropFilter: "blur(1px)",
+          willChange: "transform",
+          background: "linear-gradient(to bottom, transparent, var(--gray1))",
+          maskImage: "linear-gradient(to top, var(--gray1) 25%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to top, var(--gray1) 25%, transparent)",
+        }}
+      />
     </main>
   );
 }
