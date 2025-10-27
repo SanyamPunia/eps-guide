@@ -1,7 +1,15 @@
 import type React from "react";
-import Link from "next/link";
+import { getRepoUpdateInfo, formatTimeAgo } from "@/lib/github";
 
-export default function Home() {
+export default async function Home() {
+  const info = await getRepoUpdateInfo("SanyamPunia", "eps-guide").catch(
+    () => null
+  );
+
+  const lastUpdated = info?.pushed_at
+    ? formatTimeAgo(info.pushed_at)
+    : "unknown";
+
   return (
     <main className="relative flex flex-col min-h-screen mx-auto max-w-4xl px-6 pt-28 bg-background text-foreground">
       <div className="fixed inset-0 z-0 pointer-events-none opacity-30">
@@ -20,20 +28,18 @@ export default function Home() {
       <div className="fixed top-0 left-0 right-0 z-10 px-6 pt-20 md:pt-24">
         <div className="mx-auto max-w-4xl md:px-8">
           <h1 className="inline-block text-5xl md:text-7xl leading-none font-bold tracking-tight px-4 md:px-6 py-3 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15">
-            <span className="relative text-sky-600">Role Driven</span>
-            <br />
-            UI and Config
+            <span className="relative text-sky-600">Role-Driven UI</span>
+            <br />& EPS Framework
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
-            A focused practical language and standard for rendering interfaces
-            from permissions with deterministic rules small surface area and
-            strong ergonomics
+            Connect backend authorization with frontend visibility through a
+            unified, deterministic permission model built on top of Next.js.
           </p>
         </div>
       </div>
 
       <div className="relative z-20 pt-64 md:pt-72">
-        <div className="relative mx-auto max-w-4xl border border-zinc-100 bg-white py-6 px-4 md:p-8">
+        <div className="relative mx-auto max-w-4xl border border-zinc-100 bg-white shadow-xl py-6 px-4 md:p-8">
           <Section title="Introduction">
             <GuidelineItem description="Treat the server as source of truth for authorization and the client as a guide for visibility" />
             <GuidelineItem description="Prefer capability permissions over role names in every interface decision" />
@@ -162,13 +168,15 @@ export default function Home() {
 
           <div className="mt-16 pt-8 border-t border-border">
             <p className="text-sm leading-7 text-muted-foreground">
-              Last updated: October 2025 •{" "}
-              <Link
-                href="#"
+              Last updated: {lastUpdated} •{" "}
+              <a
+                href="https://github.com/SanyamPunia/eps-guide"
                 className="underline hover:text-foreground transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 View on GitHub
-              </Link>
+              </a>
             </p>
           </div>
         </div>
