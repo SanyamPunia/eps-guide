@@ -50,16 +50,47 @@ body {
   }
 }
 
-li::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  background: #000000;
-  border-radius: 0;
-  border: none;
-  position: absolute;
-  top: 12px;
-  left: 4px;
+
+.one-pager {
+  --sh-identifier: #0f172a; /* zinc-ish */
+  --sh-class: #0f172a;
+  --sh-jsxliterals: #0f172a;
+
+  --sh-sign: #64748b; /* slate */
+  --sh-comment: #6b7280; /* muted */
+
+  --sh-keyword: #b91c1c; /* red */
+  --sh-string: #0f766e; /* teal */
+  --sh-property: #1d4ed8; /* blue */
+  --sh-entity: #7c3aed; /* violet */
+}
+
+.one-pager .sh__token--class {
+  color: var(--sh-class);
+}
+.one-pager .sh__token--identifier {
+  color: var(--sh-identifier);
+}
+.one-pager .sh__token--sign {
+  color: var(--sh-sign);
+}
+.one-pager .sh__token--property {
+  color: var(--sh-property);
+}
+.one-pager .sh__token--entity {
+  color: var(--sh-entity);
+}
+.one-pager .sh__token--jsxliterals {
+  color: var(--sh-jsxliterals);
+}
+.one-pager .sh__token--string {
+  color: var(--sh-string);
+}
+.one-pager .sh__token--keyword {
+  color: var(--sh-keyword);
+}
+.one-pager .sh__token--comment {
+  color: var(--sh-comment);
 }
 
 
